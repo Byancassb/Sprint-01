@@ -2,11 +2,20 @@
 
 @section('title', 'Eventos — FalaQ')
 
+@section('navbar_item')
+    @auth
+        <a href="{{ route('eventos.create') }}"> Criar Evento </a>
+    @endauth
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-md-12 mb-4">
         <h2 class="fw-bold">📅 Eventos Ativos</h2>
         <p class="text-muted">Selecione o evento para enviar e visualizar as perguntas em tempo real.</p>
+        @auth
+            <a href="{{ route('eventos.create') }}"> Criar Evento </a>
+        @endauth
     </div>
 
     @foreach($eventos as $evento)

@@ -4,13 +4,26 @@ namespace Database\Seeders;
 
 use App\Models\Evento;
 use App\Models\Pergunta;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class PerguntaSeeder extends Seeder
 {
     public function run(): void
     {
+        $user = User::create([
+            'name' => 'nato-re',
+            'email' => 'nato-re@gmail.com',
+            'password' => Hash::make('12341234'),
+        ]);
+
+        $eventoPrincipal = Evento::create([
+            'titulo'      => 'Palestra Principal: O Futuro da Computação em Nuvem',
+            'descricao'   => 'Evento corporativo de tecnologia com 500 participantes simultâneos.',
+            'data_evento' => Carbon::now(),
+        ]);
 
 
         // Injeta 5.000 perguntas de teste no evento principal para simular a carga pesada
